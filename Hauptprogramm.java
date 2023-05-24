@@ -3,9 +3,11 @@ public class Hauptprogramm {
 
 	public static void main(String[] args) {
 		
-		Person p = new Person();
-		p.setVorname("Franz");
-		p.setNachname("Beckenbauer");
+		System.out.println(Person.getPersonenzaehler());  
+		
+		Person p = new Person("Franz", "Beckenbauer");
+//		p.setVorname("Franz");
+//		p.setNachname("Beckenbauer");
 		p.setGeschlecht('m');
 		p.setGroesse(186);
 		p.setfStand("ledig");
@@ -25,7 +27,7 @@ public class Hauptprogramm {
 ////=====	    
 	    
 	    Person q;
-	    q = new Person();
+	    q = new Person(); //"Birgit","Prinz"
 	    q.setVorname("Birgit");
 	    q.setNachname("Prinz");
 	    q.setGroesse(180);
@@ -50,12 +52,14 @@ public class Hauptprogramm {
 //
 //System.out.println(b.length);
 
-Hotel h = new Hotel();
-h.einmieten(q);
-h.status();
-h.einmieten(p);
-h.status();
-	System.out.println(h.freiezimmer());    
+//Hotel h = new Hotel();
+//h.einmieten(q);
+//h.status();
+//h.einmieten(p);
+//h.status();
+//	System.out.println(h.freiezimmer());    
+    
+    System.out.println(Person.getPersonenzaehler());  
 
 	}
 

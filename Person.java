@@ -7,13 +7,38 @@ public class Person {
 	private char geschlecht;
 	private String fStand;
 	private Person partner;
+	private static int personenZaehler;
+	
+	public Person() {
+		personenZaehler++;
+	}
+	
+	public Person(String vorname, String nachname) {
+		this(); // personenZaehler++; --> ruf den selbsten Konstruktor
+		this.vorname = vorname;
+		this.nachname = nachname;
+	}
+	
+	public Person(String vorname, String nachname, double groesse, char geschlecht) {
+		this(vorname, nachname); // personenZaehler++; -> ruf den 2. Konstruktor
+		this.groesse = groesse;
+		this.geschlecht = geschlecht;
+	}
 	
 	public String getName() {
 		return (this.vorname + " " + this.nachname);
 	}
 	
+	public static int getPersonenzaehler() {
+		return personenZaehler;
+	}
+	
 	public void setVorname(String vorname) {
-		this.vorname = vorname;
+		if(this.vorname == null) {
+			this.vorname = vorname;		
+	} else {
+			System.out.println("Ungültig, Vorhanden");
+	 }
 	}
 	
 	public String getVorname() {
@@ -21,7 +46,11 @@ public class Person {
 	}
 
 	public void setNachname(String nachname) {
-		this.nachname = nachname;
+		if(this.nachname == null) {
+			this.nachname = nachname;
+	} else {
+			System.out.println("Ungültig");
+	 }
 	}
 	
 	public String getNachname() {
