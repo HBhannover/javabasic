@@ -45,8 +45,17 @@ public class Hauptprogramm {
 	  
 //=====
 	    
+//int[] b = new int[10];
+//b=new int[] {1,3,4};
+//
+//System.out.println(b.length);
 
-	    
+Hotel h = new Hotel();
+h.einmieten(q);
+h.status();
+h.einmieten(p);
+h.status();
+	System.out.println(h.freiezimmer());    
 
 	}
 

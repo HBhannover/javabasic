@@ -109,6 +109,10 @@ public class Person {
 		return ergebnis;
  }
 	
+	public String vorstellen() {
+		return "Mein Name ist "+ this.nachname + ", "+this.vorname;
+	}
+	
 	
 
 	
