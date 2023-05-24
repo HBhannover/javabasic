@@ -12,6 +12,17 @@ public class Hotel {
 		this.gaeste = new Person[this.ANZAHL_ZIMMER];
 	}
 	
+	//variable Argumentliste (vararg)
+	public void einmieten(Person... persons) {
+		if (persons == null) {
+			return;
+		}
+		for (int i = 0; i < persons.length; i++) {
+			this.einmieten(persons[i]);
+			}
+		}
+
+	
 	public void einmieten(Person gast) {
 		if (gast == null) {
 			return;
@@ -25,6 +36,7 @@ public class Hotel {
 
 		System.out.println("hotel ist voll!");
 	}
+	
 
 	public void abreisen(Person ehemaligerGast) {
 		for (int i = 0; i < this.gaeste.length; i++) {
@@ -54,8 +66,9 @@ public class Hotel {
 
 		for (int i = 0; i < gaeste.length; i++) {
 			if (this.gaeste[i] != null) {
-				System.out.println(gaeste[i].vorstellen());
+				System.out.println(gaeste[i].vorstellen());				
 			}
 		}
+		System.out.println("========================");
 	}
 }

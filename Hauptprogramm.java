@@ -46,20 +46,45 @@ public class Hauptprogramm {
     System.out.println(p.getInfo());
 	  
 //=====
-	    
+    Student s = new Student("Bastian", "Schweinsteiger", 1000_000.0);
+//    s.setVorname("Bastian");
+//    s.setNachname("Schweinsteiger");
+    s.setGroesse(183);
+    s.setGeschlecht('m');
+    
+    Arbeiter a = new Arbeiter("Bach", "Nguyen", "UBS", 100_00_00.0);
+    s.setGroesse(176);
+    s.setGeschlecht('m');
+    
+    Freiberufler f = new Freiberufler ("Tom", "Jerry", 100.0);
+    s.setGroesse(180);
+    s.setGeschlecht('w');
+    
+ //===
+    
 //int[] b = new int[10];
 //b=new int[] {1,3,4};
 //
 //System.out.println(b.length);
 
-//Hotel h = new Hotel();
-//h.einmieten(q);
-//h.status();
-//h.einmieten(p);
-//h.status();
-//	System.out.println(h.freiezimmer());    
-    
+Hotel h = new Hotel(100);
+h.einmieten(q);
+h.status();
+h.einmieten(p);
+h.status();
+h.einmieten(s);
+h.status();
+h.einmieten(a);
+h.status();
+h.einmieten(f);
+h.status();
+h.einmieten(p,q,s,a,f);
+ 
+	System.out.println(h.freiezimmer());   
     System.out.println(Person.getPersonenzaehler());  
+
+
+    
 
 	}
 
