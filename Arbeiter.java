@@ -1,5 +1,5 @@
 
-public class Arbeiter extends Person {
+public class Arbeiter extends Person implements Adressierbar {
 
 	private String arbeitgeber; 
 	private double monatslohn;
@@ -23,9 +23,12 @@ public class Arbeiter extends Person {
 	public void setMonatslohn(double monatslohn) {
 		this.monatslohn = monatslohn;
 	}
-	
+	@Override
 	public String vorstellen() {
 		return super.vorstellen() +". Ich bin Arbeiter von "+this.getArbeitgeber() + " Monatsgehalt: "+ this.getMonatslohn();
 	}
-	
+	@Override
+	public String getAdresse() {
+		return this.getVorname() + " "+ this.getNachname() +" Wohnung XYZ";
+	}
 }

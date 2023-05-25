@@ -1,5 +1,5 @@
 
-public class Freiberufler extends Person {
+public class Freiberufler extends Person implements Adressierbar{
  
 	private double honorar;
 	
@@ -15,8 +15,12 @@ public class Freiberufler extends Person {
 	public void setHonorar(double honorar) {
 		this.honorar = honorar;
 	}
-	
+	@Override
 	public String vorstellen() {
-		return super.vorstellen() +". Ich bin Freibefuler";
+		return super.vorstellen() +". Ich bin Freiberufler";
+	}
+	@Override
+	public String getAdresse() {
+		return this.getVorname() + " "+ this.getNachname() +" Haus XXX";
 	}
 }

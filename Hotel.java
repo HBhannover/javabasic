@@ -1,5 +1,5 @@
 
-public class Hotel {
+public class Hotel implements Adressierbar {
 	private final int ANZAHL_ZIMMER;
 	private Person[] gaeste;
 
@@ -27,6 +27,17 @@ public class Hotel {
 		if (gast == null) {
 			return;
 		}
+		
+		//**** Erweiterung aus Interface zu Objekt:
+		if(gast instanceof Student) {
+			Student student = (Student) gast;  //Type-Cast
+			double foerderung = student.getFoerderung();
+			if(foerderung <1000.0) {
+				System.out.println("Der Student "+ student.getName() + " ist zu arm");
+				return;
+			}
+		}
+						
 		for (int i = 0; i < gaeste.length; i++) {
 			if (this.gaeste[i] == null) {
 				this.gaeste[i] = gast;
@@ -70,5 +81,10 @@ public class Hotel {
 			}
 		}
 		System.out.println("========================");
+	}
+	
+	@Override
+	public String getAdresse() {
+		return "Hotel ABCXYZ";
 	}
 }

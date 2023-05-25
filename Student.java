@@ -1,5 +1,5 @@
 
-public class Student extends Person {
+public class Student extends Person implements Adressierbar {
 
 	private double foerderung;
 	
@@ -17,8 +17,13 @@ public class Student extends Person {
 		this.foerderung = foerderung;
 	}
 	
+	@Override
 	public String vorstellen() {
 		return super.vorstellen() +". Ich bin Student";
+	}
+	@Override
+	public String getAdresse() {
+		return this.getVorname() + " "+ this.getNachname() +" Wohnheim ABC";
 	}
 	
 	

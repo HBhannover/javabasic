@@ -1,6 +1,6 @@
 
 public class Person {
-	
+
 	private String vorname;
 	private String nachname;
 	private double groesse;
@@ -8,51 +8,51 @@ public class Person {
 	private String fStand;
 	private Person partner;
 	private static int personenZaehler;
-	
+
 	public Person() {
 		personenZaehler++;
 	}
-	
+
 	public Person(String vorname, String nachname) {
 		this(); // personenZaehler++; --> ruf den selbsten Konstruktor
 		this.vorname = vorname;
 		this.nachname = nachname;
 	}
-	
+
 	public Person(String vorname, String nachname, double groesse, char geschlecht) {
 		this(vorname, nachname); // personenZaehler++; -> ruf den 2. Konstruktor
 		this.groesse = groesse;
 		this.geschlecht = geschlecht;
 	}
-	
+
 	public String getName() {
 		return (this.vorname + " " + this.nachname);
 	}
-	
+
 	public static int getPersonenzaehler() {
 		return personenZaehler;
 	}
-	
+
 	public void setVorname(String vorname) {
-		if(this.vorname == null) {
-			this.vorname = vorname;		
-	} else {
+		if (this.vorname == null) {
+			this.vorname = vorname;
+		} else {
 			System.out.println("Ungültig, Vorhanden");
-	 }
+		}
 	}
-	
+
 	public String getVorname() {
 		return this.vorname;
 	}
 
 	public void setNachname(String nachname) {
-		if(this.nachname == null) {
+		if (this.nachname == null) {
 			this.nachname = nachname;
-	} else {
+		} else {
 			System.out.println("Ungültig");
-	 }
+		}
 	}
-	
+
 	public String getNachname() {
 		return this.nachname;
 	}
@@ -62,9 +62,9 @@ public class Person {
 	}
 
 	public void setGroesse(double groesse) {
-		if(groesse > 0) {
-		this.groesse = groesse;
-		}else {
+		if (groesse > 0) {
+			this.groesse = groesse;
+		} else {
 			System.out.println("Ungültig");
 		}
 	}
@@ -75,14 +75,21 @@ public class Person {
 
 	public void setGeschlecht(char geschlecht) {
 		switch (geschlecht) {
-		    case  'm':		    	
-			case  'M': this.geschlecht = 'm'; break;
-			case  'w':
-			case  'W': this.geschlecht = 'w'; break;
-			case  'd':
-			case  'D': this.geschlecht = 'd'; break;	
-			default: System.out.println("Ungültig");
-		}		
+		case 'm':
+		case 'M':
+			this.geschlecht = 'm';
+			break;
+		case 'w':
+		case 'W':
+			this.geschlecht = 'w';
+			break;
+		case 'd':
+		case 'D':
+			this.geschlecht = 'd';
+			break;
+		default:
+			System.out.println("Ungültig");
+		}
 	}
 
 	public Person getPartner() {
@@ -96,54 +103,56 @@ public class Person {
 	public void setfStand(String fStand) {
 		this.fStand = fStand;
 	}
-	
+
 	public void heiraten(Person neuerPartner) {
-		if(this.partner == null && neuerPartner != null && neuerPartner.partner == null && neuerPartner != this) {
+		if (this.partner == null && neuerPartner != null && neuerPartner.partner == null && neuerPartner != this) {
 			this.partner = neuerPartner;
 			neuerPartner.partner = this;
 		}
 	}
-	
+
 //	public void heiraten(Person partner, String fStand) {
 //		this.partner = partner;
 //		this.fStand = fStand;
 //		
 //	}
-	
+
 	public void scheiden() {
-		if(this.partner != null) {
+		if (this.partner != null) {
 			this.partner.partner = null;
 			this.partner = null;
 		}
 	}
-	
+
 //	public String getInfo() {
 //		return this.getNachname() + " " + this.getVorname() +  " " +this.getGroesse() + " "  +this.getfStand() + " "
 //			 + this.getPartner().vorname + " " +this.getPartner().nachname + " " +this.getPartner().groesse;
 //	}
 
 	public String getInfo() {
-		String ergebnis = this.getName() + ", " +this.groesse + "cm, "	;
+		String ergebnis = this.getName() + ", " + this.groesse + "cm, ";
 		switch (this.geschlecht) {
-		case 'm': ergebnis += "männlich, "; break;
-		case 'w': ergebnis += "weiblich, "; break;
-		case 'd': ergebnis += "divers, "; break;
+		case 'm':
+			ergebnis += "männlich, ";
+			break;
+		case 'w':
+			ergebnis += "weiblich, ";
+			break;
+		case 'd':
+			ergebnis += "divers, ";
+			break;
 		}
-		if(this.partner != null) {
+		if (this.partner != null) {
 			ergebnis += "verheiratet mit " + this.partner.getName();
-		}else {
+		} else {
 			ergebnis += "unverheiratet";
 		}
-		
-		return ergebnis;
- }
-	
-	public String vorstellen() {
-		return "Mein Name ist "+ this.nachname + ", "+this.vorname;
-	}
-	
-	
 
-	
-	
+		return ergebnis;
+	}
+
+	public String vorstellen() {
+		return "Mein Name ist " + this.nachname + " " + this.vorname;
+	}
+
 }

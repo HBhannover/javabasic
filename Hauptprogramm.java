@@ -46,13 +46,13 @@ public class Hauptprogramm {
     System.out.println(p.getInfo());
 	  
 //=====
-    Student s = new Student("Bastian", "Schweinsteiger", 1000_000.0);
+    Student s = new Student("Bastian", "Schweinsteiger", 1000.0);
 //    s.setVorname("Bastian");
 //    s.setNachname("Schweinsteiger");
     s.setGroesse(183);
     s.setGeschlecht('m');
     
-    Arbeiter a = new Arbeiter("Bach", "Nguyen", "UBS", 100_00_00.0);
+    Arbeiter a = new Arbeiter("Harry", "Poster", "Geil AG", 100_00_00.0);
     s.setGroesse(176);
     s.setGeschlecht('m');
     
@@ -84,7 +84,15 @@ h.einmieten(p,q,s,a,f);
     System.out.println(Person.getPersonenzaehler());  
 
 
-    
+AdressBuch adb = new AdressBuch();
+
+adb.eintragen(a);
+adb.eintragen(s);
+adb.eintragen(h);
+adb.eintragen(f);
+
+adb.ausgeben();
+
 
 	}
 
