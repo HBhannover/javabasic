@@ -33,11 +33,11 @@ public class Person {
 		return personenZaehler;
 	}
 
-	public void setVorname(String vorname) {
+	public void setVorname(String vorname) throws Exception {
 		if (this.vorname == null) {
 			this.vorname = vorname;
 		} else {
-			System.out.println("Ungültig, Vorhanden");
+			throw new Exception ("Ungültig, Vorhanden");
 		}
 	}
 

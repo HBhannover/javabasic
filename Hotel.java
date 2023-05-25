@@ -3,13 +3,14 @@ public class Hotel implements Adressierbar {
 	private final int ANZAHL_ZIMMER;
 	private Person[] gaeste;
 
-	public Hotel() {
+	public Hotel() throws Exception {
 		this(5); // ruf den folgenden Konstruktor
 	}
 
 	public Hotel(int anzahl) {
 		this.ANZAHL_ZIMMER = anzahl;
 		this.gaeste = new Person[this.ANZAHL_ZIMMER];
+		
 	}
 	
 	//variable Argumentliste (vararg)

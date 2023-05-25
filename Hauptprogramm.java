@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class Hauptprogramm {
 
@@ -27,8 +28,15 @@ public class Hauptprogramm {
 ////=====	    
 	    
 	    Person q;
-	    q = new Person(); //"Birgit","Prinz"
-	    q.setVorname("Birgit");
+	    q = new Person("Birgit","Prinz"); //"Birgit","Prinz"
+	    
+	    try {
+			q.setVorname("Birgit");
+		} catch (Exception e) {
+			// e.printStackTrace();
+			String message = e.getMessage();
+			JOptionPane.showMessageDialog(null, message);    // Altelative mit Swing-Meldung
+		}
 	    q.setNachname("Prinz");
 	    q.setGroesse(180);
 	    q.setGeschlecht('w');
