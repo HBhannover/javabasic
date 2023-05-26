@@ -1,5 +1,7 @@
 package de.integrata.java.oop.personen;
 
+import java.util.Objects;
+
 public class Person {
 
 	private String vorname;
@@ -153,9 +155,67 @@ public class Person {
 
 		return ergebnis;
 	}
+	
+	// Alterlative für getInfo() mit der Nutzung von toString() und append()
+	public String getInfo2() {
+		StringBuilder sb = new StringBuilder(255);
+		sb.append(this.getName())
+		  .append(", ")
+		  .append(this.groesse)
+		  .append("cm");
+		
+		switch (this.geschlecht) {
+		case 'm':
+			sb.append("männlich, ");
+			break;
+		case 'w':
+			sb.append("weiblich, ");
+			break;
+		case 'd':
+			sb.append("divers, ");
+			break;
+		}
+		if (this.partner != null) {
+			sb.append("verheiratet mit ").append(this.partner.getName());
+		} else {
+			sb.append("unverheiratet");
+		}
+
+		return sb.toString();
+		
+	}
 
 	public String vorstellen() {
 		return "Mein Name ist " + this.nachname + " " + this.vorname;
 	}
+	
+	//generate durch [Source --> Generate hashCode() and equals()]
+	@Override
+	public int hashCode() {
+		return Objects.hash(fStand, geschlecht, groesse, nachname, vorname);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return Objects.equals(fStand, other.fStand) && geschlecht == other.geschlecht
+				&& Double.doubleToLongBits(groesse) == Double.doubleToLongBits(other.groesse)
+				&& Objects.equals(nachname, other.nachname) && Objects.equals(vorname, other.vorname);
+	}
+
+	@Override
+	public String toString() {
+		return "Person [vorname=" + vorname + ", nachname=" + nachname + ", groesse=" + groesse + ", geschlecht="
+				+ geschlecht + ", fStand=" + fStand + ", partner=" + partner + "]";
+	}
+	
+	
+
 
 }

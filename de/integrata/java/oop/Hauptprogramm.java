@@ -109,7 +109,17 @@ public class Hauptprogramm {
 		adb.eintragen(f);
 
 		adb.ausgeben();
-
+		
+		System.out.println(p.toString());
+		
+		// Wrapper-Class
+		Integer i = Integer.valueOf(42); // oder einfach mit Autoboxing: Integer i = 42;
+		Float t = Float.valueOf(12);
+		Object o = i;
+		Object l = t;
+		
+		System.out.println(o);
+		System.out.println(l);
 	}
 
 }

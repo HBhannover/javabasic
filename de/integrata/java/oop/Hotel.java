@@ -5,6 +5,13 @@ import de.integrata.java.oop.adressen.Aufrufbar;
 import de.integrata.java.oop.personen.Person;
 import de.integrata.java.oop.personen.Student;
 
+/**
+ * Ein Hotel ist ein Container für Personen.
+ * Im Hotel kann man Personen einmieten. Die Methode {@code status()} ruft für alle Hotelgäste die Mothode {@link Person.verstellen()} auf
+ * @author Hoang Bach Nguyen
+ *
+ */
+
 public class Hotel implements Adressierbar, Aufrufbar {
 	private final int ANZAHL_ZIMMER;
 	private Person[] gaeste;
@@ -29,7 +36,10 @@ public class Hotel implements Adressierbar, Aufrufbar {
 			}
 		}
 
-	
+	/**
+	 * Person, die Hotel einmieten wollte
+	 * @param gast
+	 */
 	public void einmieten(Person gast) {
 		if (gast == null) {
 			return;
