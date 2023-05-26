@@ -1,5 +1,11 @@
+package de.integrata.java.oop;
 
-public class Hotel implements Adressierbar {
+import de.integrata.java.oop.adressen.Adressierbar;
+import de.integrata.java.oop.adressen.Aufrufbar;
+import de.integrata.java.oop.personen.Person;
+import de.integrata.java.oop.personen.Student;
+
+public class Hotel implements Adressierbar, Aufrufbar {
 	private final int ANZAHL_ZIMMER;
 	private Person[] gaeste;
 
@@ -45,7 +51,6 @@ public class Hotel implements Adressierbar {
 				return;
 			}
 		}
-
 		System.out.println("hotel ist voll!");
 	}
 	
@@ -87,5 +92,10 @@ public class Hotel implements Adressierbar {
 	@Override
 	public String getAdresse() {
 		return "Hotel ABCXYZ";
+	}
+	
+	@Override
+	public String getTeilNr() {
+		return "...";
 	}
 }

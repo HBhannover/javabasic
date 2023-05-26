@@ -1,3 +1,4 @@
+package de.integrata.java.oop.adressen;
 
 public class AdressBuch {
 

@@ -1,3 +1,4 @@
+package de.integrata.java.oop.personen;
 
 public class Person {
 
@@ -39,6 +40,8 @@ public class Person {
 		} else {
 			throw new Exception ("Ungültig, Vorhanden");
 		}
+		
+		assert this.vorname != null: "Falsch!!"; // assert <Vergleich> : <"Messages">
 	}
 
 	public String getVorname() {

@@ -1,3 +1,6 @@
+package de.integrata.java.oop.personen;
+
+import de.integrata.java.oop.adressen.Adressierbar;
 
 public class Arbeiter extends Person implements Adressierbar {
 
